@@ -1,9 +1,12 @@
 " show line numbers
-set number
+set relativenumber
 set wrap
+set visualbell
+set title
+set background=dark
 " set guifont=SourceCodeProForPowerline-Regular:h14 
 
-syntax on
+syntax enable
 " ignorecase when searching
 set ignorecase
 
@@ -13,11 +16,20 @@ set paste
 
 set hlsearch    " highlight all search results
 set incsearch   " show incremental search results as you type
-set number      " display line number
+set smartcase "switches to case sensitive when uppercase used"
+set ignorecase "ignores case when searching" 
 
 " set tab width and autoindents
 set autoindent
 set smartindent
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
+set lazyredraw "don't update screen during macro and script execution
+
+set encoding=utf-8
+set scrolloff=2
+set sidescrolloff=5
+
 colorscheme default
+set hidden
+set spell

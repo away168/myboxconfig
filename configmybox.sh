@@ -16,6 +16,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 # create symlinks
 ln -s ./.zshrc ~/.zshrc
+mkdir -p ~/.config
 ln -s ./.config/starship.toml ~/.config/starship.toml
 ln -s ./.vimrc ~/.vimrc
 ln -s ./.zsh_plugins.txt ~/.zsh_plugins.txt
