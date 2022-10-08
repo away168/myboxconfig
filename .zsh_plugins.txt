@@ -3,3 +3,4 @@
 # comments are supported like this
 rupa/z
 zsh-users/zsh-completions
+mdumitru/git-aliases
