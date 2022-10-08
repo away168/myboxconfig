@@ -13,4 +13,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# source antidote
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
+
 eval "$(starship init zsh)"
