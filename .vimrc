@@ -30,6 +30,6 @@ set encoding=utf-8
 set scrolloff=2
 set sidescrolloff=5
 
-colorscheme default
+colorscheme slate 
 set hidden
 set spell
