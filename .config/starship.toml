@@ -21,3 +21,8 @@ format = "[$ssh_symbol$hostname]($style)"
 
 [username]
 format = "[$user]($style) "
+
+[time]
+format = '🕰[\[ $time \]]($style)'
+disabled = false
+time_format = "%d%b %H:%M:%S"
