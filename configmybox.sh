@@ -14,6 +14,19 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antid
 #install starship
 curl -sS https://starship.rs/install.sh | sh
 
+CONFIGS=('~/.zshrc' '~/.config/starship.toml' '~/.vimrc' '~/.zsh_plugins.txt')
+
+if [[ ! -e ~/.config ]]; then
+  mkdir ~/.config
+fi
+
+for config in ${CONFIGS[@]}; do
+  if [[ -e $config ]]; then
+    mv $config $config.$(date +%Y%m%d)
+    rm $config
+  fi 
+done
+
 # create symlinks
 ln -s $(pwd)/.zshrc ~/.zshrc
 mkdir -p ~/.config
