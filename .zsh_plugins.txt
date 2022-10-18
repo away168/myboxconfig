@@ -7,6 +7,8 @@ mdumitru/git-aliases
 chrissicool/zsh-256color
 agpenton/1password-zsh-plugin
 djui/alias-tips
+zsh-users/zsh-autosuggestions # needs to be before zsh-vim-mode
+zdharma-continuum/fast-syntax-highlighting # needs to be before zsh-vim-mode
 softmoth/zsh-vim-mode
 
 # k8s
