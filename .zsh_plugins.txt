@@ -13,3 +13,6 @@ Dbz/kube-aliases
 #trejo08/kubecolor-zsh
 droctothorpe/kubecolor
 ptavares/zsh-kubectx
+
+# terraform
+ptavares/zsh-terraform
