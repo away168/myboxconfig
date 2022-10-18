@@ -7,12 +7,15 @@ mdumitru/git-aliases
 chrissicool/zsh-256color
 agpenton/1password-zsh-plugin
 djui/alias-tips
+softmoth/zsh-vim-mode
 
 # k8s
 Dbz/kube-aliases
 #trejo08/kubecolor-zsh
 droctothorpe/kubecolor
 ptavares/zsh-kubectx
+
+#apachler/zsh-aws
 
 # terraform
 ptavares/zsh-terraform
