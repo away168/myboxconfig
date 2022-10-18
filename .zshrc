@@ -14,15 +14,15 @@ compinit
 # End of lines added by compinstall
 
 # set colors
-  if [[ -x /usr/bin/dircolors ]]; then
-      test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#  if [[ -x /usr/bin/dircolors ]]; then
+      test -x dircolors && eval "$(dircolors -b ~/.dircolors)" || test -x gdircolors && eval "$(gdircolors -b ~/.dircolors)"
       alias ls='ls --color=auto'
       alias dir='dir --color=auto'
       alias vdir='vdir --color=auto'
       alias grep='grep --color=auto'
       alias fgrep='fgrep --color=auto'
       alias egrep='egrep --color=auto'
-  fi
+#  fi
 
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh

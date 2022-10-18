@@ -19,7 +19,7 @@ fi
 #install starship
 curl -sS https://starship.rs/install.sh | sh
 
-CONFIGS=("$HOME/.zshrc" "$HOME/.config/starship.toml" "$HOME/.vimrc" "$HOME/.zsh_plugins.txt")
+CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors")
 
 echo "check for existing configs"
 
@@ -29,24 +29,27 @@ fi
 
 for config in ${CONFIGS[@]}; do
   echo "checking for $config"
-  if [[ -e ${config} ]]; then
+  if [[ -e $HOME/${config} ]]; then
     echo "backing up & removing $config"
-    cp $config $config.$(date +%Y%m%d%H%M)
-    rm $config
+    cp $HOME/$config $HOME/$config.$(date +%Y%m%d%H%M)
+    rm $HOME/$config
   fi 
+  # create symlinks
+  ln -s $(pwd)/$config $HOME/$config
 done
 
-#if [[ -e $HOME/.zshrc ]]; then
+#if [[ -e s.zshrc ]]; then
 #  echo "found .zshrc"
-#  cp $HOME/.zshrc $HOME/.zshrc.$(date +%Y%m%d)
+#  cp s.zshrc $HOME/.zshrc.$(date +%Y%m%d)
 #  # rm $config
 #fi
 
 # create symlinks
-ln -s $(pwd)/.zshrc ~/.zshrc
-mkdir -p ~/.config
-ln -s $(pwd)/.config/starship.toml ~/.config/starship.toml
-ln -s $(pwd)/.vimrc ~/.vimrc
-ln -s $(pwd)/.zsh_plugins.txt ~/.zsh_plugins.txt
+#ln -s $(pwd)/.zshrc ~/.zshrc
+#mkdir -p ~/.config
+#ln -s $(pwd)/.config/starship.toml ~/.config/starship.toml
+#ln -s $(pwd)/.vimrc ~/.vimrc
+#ln -s $(pwd)/.zsh_plugins.txt ~/.zsh_plugins.txt
+
 
 source ~/.zshrc

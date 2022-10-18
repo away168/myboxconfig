@@ -4,3 +4,11 @@
 rupa/z
 zsh-users/zsh-completions
 mdumitru/git-aliases
+chrissicool/zsh-256color
+agpenton/1password-zsh-plugin
+
+# k8s
+Dbz/kube-aliases
+#trejo08/kubecolor-zsh
+droctothorpe/kubecolor
+ptavares/zsh-kubectx
