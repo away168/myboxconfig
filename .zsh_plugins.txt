@@ -6,6 +6,7 @@ zsh-users/zsh-completions
 mdumitru/git-aliases
 chrissicool/zsh-256color
 agpenton/1password-zsh-plugin
+djui/alias-tips
 
 # k8s
 Dbz/kube-aliases
