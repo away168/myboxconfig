@@ -30,3 +30,4 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
 
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"

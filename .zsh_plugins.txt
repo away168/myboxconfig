@@ -17,7 +17,7 @@ Dbz/kube-aliases
 droctothorpe/kubecolor
 ptavares/zsh-kubectx
 
-#apachler/zsh-aws
+apachler/zsh-aws
 
 # terraform
 ptavares/zsh-terraform
