@@ -19,7 +19,9 @@ fi
 #install starship
 curl -sS https://starship.rs/install.sh | sh
 
-CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors")
+CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors") 
+
+CONFIGDIR=(".config/nvim" ".local/share/nvim")
 
 echo "check for existing configs"
 
@@ -36,6 +38,15 @@ for config in ${CONFIGS[@]}; do
   fi 
   # create symlinks
   ln -s $(pwd)/$config $HOME/$config
+done
+
+for configdir in ${CONFIGDIR[@]}; do
+  echo "checking $configdir"
+  if [[ -e $HOME/${configdir} ]]; then
+    echo "backing up $configdir"
+    mv $HOME/$configdir $HOME/$configdir.$(date +%Y%m%d%H%M)
+  fi
+  ln -s $(pwd)/$configdir $HOME/$configdir
 done
 
 #if [[ -e s.zshrc ]]; then
