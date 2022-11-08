@@ -7,6 +7,7 @@ opt.number = true                -- bool: Show line numbers
 opt.relativenumber = true        -- bool: Show relative line numbers
 opt.scrolloff = 4                -- int:  Min num lines of context
 opt.signcolumn = "yes"           -- str:  Show the sign column
+opt.conceallevel = 0
 
 -- [[ Filetypes ]]
 opt.encoding = 'utf8'            -- str:  String encoding to use

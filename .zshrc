@@ -31,3 +31,4 @@ antidote load
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+eval "$(op completion zsh)"; compdef _op op

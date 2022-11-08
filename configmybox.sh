@@ -21,7 +21,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors") 
 
-CONFIGDIR=(".config/nvim" ".local/share/nvim")
+CONFIGDIR=(".config/nvim")
 
 echo "check for existing configs"
 
