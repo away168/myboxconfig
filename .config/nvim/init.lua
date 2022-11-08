@@ -13,3 +13,5 @@ require('keys')      -- Keymaps
 require('plug')      -- Plugins
 
 require'nvim-tree'.setup {}
+
+vim.opt.conceallevel = 0
