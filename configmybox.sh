@@ -63,4 +63,4 @@ done
 #ln -s $(pwd)/.zsh_plugins.txt ~/.zsh_plugins.txt
 
 
-source ~/.zshrc
+#source ~/.zshrc
