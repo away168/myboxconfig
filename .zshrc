@@ -24,6 +24,9 @@ compinit
       alias egrep='egrep --color=auto'
 #  fi
 
+alias vim="nvim"
+alias vi="nvim"
+
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
