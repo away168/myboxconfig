@@ -1,5 +1,6 @@
 --[[ opts.lua ]]
 local opt = vim.opt
+local g = vim.g
 
 -- [[ Context ]]
 -- opt.colorcolumn = '80'           -- str:  Show col for max line length
@@ -28,7 +29,11 @@ opt.expandtab = true             -- bool: Use spaces instead of tabs
 opt.shiftwidth = 2               -- num:  Size of an indent
 opt.softtabstop = 2              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 2                  -- num:  Number of spaces tabs count for
+g.indent_guides_start_level = 2
+g.indent_guides_guide_size = 1
+g.indent_guides_enable_on_vim_startup = 1
 
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true   
+
