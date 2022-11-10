@@ -58,6 +58,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'romgrk/barbar.nvim',                            -- tabline tabs
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  use {
     'goolord/alpha-nvim',                            -- startup
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function ()
