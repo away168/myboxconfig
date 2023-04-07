@@ -5,7 +5,7 @@ rupa/z
 zsh-users/zsh-completions
 mdumitru/git-aliases
 chrissicool/zsh-256color
-agpenton/1password-zsh-plugin
+#agpenton/1password-zsh-plugin
 djui/alias-tips
 zsh-users/zsh-autosuggestions # needs to be before zsh-vim-mode
 zdharma-continuum/fast-syntax-highlighting # needs to be before zsh-vim-mode
@@ -17,7 +17,7 @@ Dbz/kube-aliases
 droctothorpe/kubecolor
 ptavares/zsh-kubectx
 
-apachler/zsh-aws
+#apachler/zsh-aws
 
 # terraform
 ptavares/zsh-terraform
