@@ -26,6 +26,12 @@ compinit
 
 alias vim="nvim"
 alias vi="nvim"
+alias kuc="kubectl config use-context"
+alias kgc="kubectl config get-contexts"
+
+function asp(){
+      export AWS_PROFILE="$@"
+}
 
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
@@ -35,3 +41,10 @@ antidote load
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
+eval "$(pyenv init -)"
+
+# pnpm
+export PNPM_HOME="/Users/away/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+SPACESHIP_PROMPT_ASYNC=FALSE

@@ -21,3 +21,4 @@ apachler/zsh-aws
 
 # terraform
 ptavares/zsh-terraform
+https://github.com/apachler/zsh-aws
