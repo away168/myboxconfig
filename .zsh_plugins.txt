@@ -21,4 +21,3 @@ ptavares/zsh-kubectx
 
 # terraform
 ptavares/zsh-terraform
-https://github.com/apachler/zsh-aws
