@@ -46,5 +46,7 @@ eval "$(pyenv init -)"
 # pnpm
 export PNPM_HOME="/Users/away/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+# golang
+export PATH=$PATH:/usr/local/go/bin
 # pnpm end
 SPACESHIP_PROMPT_ASYNC=FALSE
