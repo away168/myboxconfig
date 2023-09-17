@@ -19,7 +19,7 @@ fi
 #install starship
 curl -sS https://starship.rs/install.sh | sh
 
-CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors") 
+CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh") 
 
 CONFIGDIR=(".config/nvim")
 
