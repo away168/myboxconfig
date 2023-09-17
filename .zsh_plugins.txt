@@ -1,6 +1,7 @@
 # .zsh_plugins.txt
 
 # comments are supported like this
+romkatv/powerlevel10k
 rupa/z
 zsh-users/zsh-completions
 mdumitru/git-aliases
