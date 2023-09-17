@@ -49,7 +49,6 @@ antidote load
 
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
-eval "$(pyenv init -)"
 
 # pnpm
 export PNPM_HOME="/Users/away/Library/pnpm"
@@ -64,3 +63,8 @@ export PATH="$PATH:$GOPATH/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
