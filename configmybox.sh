@@ -16,10 +16,7 @@ else
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
-#install starship
-curl -sS https://starship.rs/install.sh | sh
-
-CONFIGS=(".zshrc" ".config/starship.toml" ".vimrc" ".zsh_plugins.txt" ".dircolors") 
+CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh") 
 
 CONFIGDIR=(".config/nvim")
 

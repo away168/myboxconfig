@@ -49,13 +49,12 @@ antidote load
 
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
-eval "$(pyenv init -)"
 
 # pnpm
 export PNPM_HOME="/Users/away/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-
-#gopath
+# golang
+export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$GOPATH/bin"
 
 # pnpm end
@@ -74,3 +73,7 @@ export PATH="$PATH:/usr/local/share/dotnet"
 
 # alias
 alias ascii="echo -e \$(pbpaste)"
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
