@@ -21,4 +21,4 @@ ptavares/zsh-kubectx
 #apachler/zsh-aws
 
 # terraform
-ptavares/zsh-terraform
+#ptavares/zsh-terraform
