@@ -13,6 +13,5 @@
 # Optional parameters:
 # @raycast.icon 🤖
 # @raycast.packageName Raycast Scripts
-# @raycast.argument1 { "type": "text", "placeholder":"text", "percentEncded": true}
 
-echo -e $1
+echo -e $(pbpaste)

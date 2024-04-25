@@ -7,22 +7,11 @@
 #
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Base64 Encode
+# @raycast.title escape
 # @raycast.mode fullOutput
 #
 # Optional parameters:
 # @raycast.icon 🤖
 # @raycast.packageName Raycast Scripts
-# @raycast.argument1 { "type": "text", "placeholder":"text", "percentEncded": true}
 
-text=""
-if [[ $1 == " " ]]; then
-  text=$(pbpaste)
-else
-  text=$1
-fi 
-
-echo "Encoding $text"
-encoded=$(echo -n $text | base64)
-echo $encoded
-echo $encoded | pbcopy
+printf %q $(pbpaste) 

@@ -15,7 +15,7 @@
 # @raycast.packageName Raycast Scripts
 # @raycast.argument1 { "type": "text", "placeholder":"b64enc", "percentEncded": true}
 
-echo "Decoding $1"
-decoded=$(echo "$1" | base64 -d)
+echo "Decoding $(pbpaste)"
+decoded=$(pbpaste | base64 -d)
 echo $decoded
 echo $decoded | pbcopy

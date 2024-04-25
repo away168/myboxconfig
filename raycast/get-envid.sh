@@ -13,12 +13,11 @@
 # Optional parameters:
 # @raycast.icon 🤖
 # @raycast.packageName Raycast Scripts
-# @raycast.argument1 { "type": "text", "placeholder":"env0 URL", "percentEncded": true}
 
-echo "env0 URL: $1"
+echo "env0 URL: $(pbpaste)"
 
 # Extract the path part of the URL
-guid=$(echo $1 | awk -F'/' '{print $7}' | awk -F'?' '{print $1}')
+guid=$(pbpaste | awk -F'/' '{print $7}' | awk -F'?' '{print $1}')
 
 echo "GUID after 'environments': $guid (copied to clipboard)"
 echo $guid | pbcopy
