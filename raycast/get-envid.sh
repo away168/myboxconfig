@@ -21,3 +21,4 @@ guid=$(pbpaste | awk -F'/' '{print $7}' | awk -F'?' '{print $1}')
 
 echo "GUID after 'environments': $guid (copied to clipboard)"
 echo $guid | pbcopy
+open https://bi.app.env0.com/queries/126?p_environment%20id=$guid

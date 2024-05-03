@@ -18,7 +18,7 @@ fi
 
 CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh") 
 
-CONFIGDIR=(".config/nvim")
+CONFIGDIR=(".config/nvim" ".git-template")
 
 echo "check for existing configs"
 
