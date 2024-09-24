@@ -28,13 +28,13 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "lua_ls",
-        -- "bashls",
-        -- "dockerls",
-        -- "jsonnet_ls",
+        "bashls",
+        "dockerls",
+        "jsonnet_ls",
         "terraformls",
-        -- "gopls",
-        -- "helm_ls",
-        -- "yamlls",
+        "gopls",
+        "helm_ls",
+        "yamlls",
         "typos_lsp",
       },
     })
