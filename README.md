@@ -20,4 +20,5 @@ notes:
 install P10K - romkatv/powerlevel10k in antidote
 
 update:
+2024/09/24 - Using Lazy Plugin for neovim - `:Lazy`
 2023/09/17 - Remove Starship replaced with P10K
