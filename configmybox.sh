@@ -16,9 +16,9 @@ else
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
-CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh") 
+CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf") 
 
-CONFIGDIR=(".config/nvim" ".git-template")
+CONFIGDIR=(".config/nvim" ".git-template" ".tmux")
 
 echo "check for existing configs"
 
