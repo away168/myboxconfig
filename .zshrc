@@ -22,13 +22,13 @@ compinit
 
 # set colors
 #  if [[ -x /usr/bin/dircolors ]]; then
-      test -x dircolors && eval "$(dircolors -b ~/.dircolors)" || test -x gdircolors && eval "$(gdircolors -b ~/.dircolors)"
-      alias ls='ls --color=auto'
-      alias dir='dir --color=auto'
-      alias vdir='vdir --color=auto'
-      alias grep='grep --color=auto'
-      alias fgrep='fgrep --color=auto'
-      alias egrep='egrep --color=auto'
+test -x dircolors && eval "$(dircolors -b ~/.dircolors)" || test -x gdircolors && eval "$(gdircolors -b ~/.dircolors)"
+# alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 #  fi
 
 alias vim="nvim"
@@ -74,9 +74,47 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet
 export PATH="$PATH:/usr/local/share/dotnet"
 
+# fzf
+eval "$(fzf --zsh)"
+bindkey -r '^T'  # change key binding ^T to ^F
+bindkey '^F' fzf-file-widget
+
+# fzf with fd
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
+# zoxide (z)
+eval "$(zoxide init zsh)"
+
 # alias
 alias ascii="echo -e \$(pbpaste)"
 alias tf="tofu"
+alias ls="eza --color=always --git --icons=always"
+alias ll="ls --long"
+alias cd="z"
+
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
