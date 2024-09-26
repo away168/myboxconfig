@@ -73,6 +73,7 @@ export PATH="$PATH:/usr/local/share/dotnet"
 
 # alias
 alias ascii="echo -e \$(pbpaste)"
+alias tf="tofu"
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

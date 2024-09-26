@@ -33,3 +33,6 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 --split windows
 opt.splitright = true
 opt.splitbelow = true
+
+-- turn off swapfile
+opt.swapfile = false

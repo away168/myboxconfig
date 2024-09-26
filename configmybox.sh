@@ -16,7 +16,7 @@ else
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
-CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf") 
+CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf" ".wezterm.lua") 
 
 CONFIGDIR=(".config/nvim" ".git-template" ".tmux")
 
