@@ -61,6 +61,9 @@ export PATH="$PATH:$GOPATH/bin"
 # eval "$(starship init zsh)"
 # SPACESHIP_PROMPT_ASYNC=FALSE
 
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
