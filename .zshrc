@@ -113,7 +113,7 @@ alias ascii="echo -e \$(pbpaste)"
 alias tf="tofu"
 alias ls="eza --color=always --git --icons=always"
 alias ll="ls --long"
-alias cd="z"
+# alias cd="z"
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
