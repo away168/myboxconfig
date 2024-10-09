@@ -18,7 +18,7 @@ fi
 
 CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf" ".wezterm.lua") 
 
-CONFIGDIR=(".config/nvim" ".git-template" ".tmux")
+CONFIGDIR=(".config/nvim" ".git-template")
 
 echo "check for existing configs"
 
@@ -46,6 +46,16 @@ for configdir in ${CONFIGDIR[@]}; do
   ln -s $(pwd)/$configdir $HOME/$configdir
 done
 
+# tpm setup
+if [[ ! -e ~/.tmux/plugins/tpm ]]; then
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+fi
+
+# powerlevel10k setup
+if [[ ! -e ~/code/powerlevel10k ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/code/powerlevel10k
+fi
 #if [[ -e s.zshrc ]]; then
 #  echo "found .zshrc"
 #  cp s.zshrc $HOME/.zshrc.$(date +%Y%m%d)
