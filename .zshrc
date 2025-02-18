@@ -50,9 +50,6 @@ antidote load
 eval "$(direnv hook zsh)"
 eval "$(op completion zsh)"; compdef _op op
 
-# pnpm
-export PNPM_HOME="/Users/away/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
 # golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$GOPATH/bin"
@@ -119,3 +116,29 @@ alias ll="ls --long"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+alias tmdb='tcloudadmin tmdb --api https://tmdb.internal.together.ai/api/v1'
+
+# TINMAN
+export PATH="$PATH:/Users/andrewway/together/tools/model_install/"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(mamba shell hook --shell zsh)"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/opt/homebrew/bin/mamba';
+export MAMBA_ROOT_PREFIX='/opt/homebrew';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
