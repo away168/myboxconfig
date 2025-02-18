@@ -33,3 +33,5 @@ set sidescrolloff=5
 colorscheme slate 
 set hidden
 set spell
+
+set autoread
