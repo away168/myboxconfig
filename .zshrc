@@ -130,15 +130,22 @@ if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
 
 eval "$(mamba shell hook --shell zsh)"
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba shell init' !!
-export MAMBA_EXE='/opt/homebrew/bin/mamba';
-export MAMBA_ROOT_PREFIX='/opt/homebrew';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
+# # >>> mamba initialize >>>
+# # !! Contents within this block are managed by 'mamba shell init' !!
+# export MAMBA_EXE='/opt/homebrew/bin/mamba';
+# export MAMBA_ROOT_PREFIX='/opt/homebrew';
+# __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__mamba_setup"
+# else
+#     alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+# fi
+# unset __mamba_setup
+# # <<< mamba initialize <<<
+
+# Created by `pipx` on 2025-03-02 20:14:01
+PYTHON_REQUIRE_VIRTUALENV=true
+export PATH="$PATH:/Users/andrewway/.local/bin"
+
+# tmdb 
+alias tmdb="tcloudadmin tmdb --api $TMDB_BASE_URL"
