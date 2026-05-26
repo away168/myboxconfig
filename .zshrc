@@ -112,6 +112,9 @@ alias ls="eza --color=always --git --icons=always"
 alias ll="ls --long"
 # alias cd="z"
 
+# K9s
+export K9S_FEATURE_GATE_NODE_SHELL=true
+
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -147,5 +150,26 @@ eval "$(mamba shell hook --shell zsh)"
 PYTHON_REQUIRE_VIRTUALENV=true
 export PATH="$PATH:/Users/andrewway/.local/bin"
 
+export TCM_BASE_URL="https://manager.cloud.together.ai/tcm/v1/"
+export TMDB_BASE_URL="https://tmdb.internal.together.ai/api/v1/"
 # tmdb 
 alias tmdb="tcloudadmin tmdb --api $TMDB_BASE_URL"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+ssh_retry() {
+    local user_host="$1"
+    if [[ -z "$user_host" ]]; then
+        echo "Usage: ssh_retry user@host"
+        return 1
+    fi
+    while ! ssh "$user_host"; do
+      echo "$(date): retrying in 10 seconds..."
+        sleep 10
+    done
+}
+
+export EDITOR=nvim
+export TMPDIR=/tmp
+source ~/.zsh_tenantctl
+export PATH="$HOME/.tcloud/bin:$PATH"

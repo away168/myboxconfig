@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Check dependencies
+command -v curl >/dev/null 2>&1 || { echo "Error: curl not found"; exit 1; }
+command -v jq >/dev/null 2>&1 || { echo "Error: jq not found"; exit 1; }
+
+# Configuration - Replace with your values
+API_KEY="${TOGETHER_API_KEY:-your_api_key_here}"
+API_URL="https://api.together.ai/v1/chat/completions"
+MODEL="moonshotai/Kimi-K2-Instruct"  # Example model
+
+# System prompt for Linux admin role
+SYSTEM_PROMPT="You are a Linux administrator. Provide concise and accurate commands or advice for Linux system administration tasks."
+
+# Get user query from command line argument or prompt
+if [ -z "$1" ]; then
+    read -p "Enter Linux admin query: " USER_QUERY
+else
+    USER_QUERY="$1"
+fi
+
+# Create JSON payload
+JSON_PAYLOAD=$(cat <<EOF
+{
+  "model": "$MODEL",
+  "messages": [
+    {"role": "system", "content": "$SYSTEM_PROMPT"},
+    {"role": "user", "content": "$USER_QUERY"}
+  ],
+  "temperature": 0.9,
+  "max_tokens": 512
+}
+EOF
+)
+
+# Make API call
+RESPONSE=$(curl -s -X POST "$API_URL" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "$JSON_PAYLOAD")
+
+# Check for errors
+if echo "$RESPONSE" | jq -e '.error' >/dev/null 2>&1; then
+  echo "API Error:"
+  echo "$RESPONSE" | jq -r '.error.message'
+  exit 1
+fi
+
+# Extract and display response
+echo -e "\nLinux Admin Response:\n"
+echo "$RESPONSE" | jq -r '.choices[0].message.content'

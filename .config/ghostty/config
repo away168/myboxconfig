@@ -1,0 +1,7 @@
+# Ghostty config
+# Run `ghostty +show-config --default --docs` to view all options.
+# Docs: https://ghostty.org/docs/config
+
+font-family = FiraCode Nerd Font
+alpha-blending = native
+background-opacity = 0.9

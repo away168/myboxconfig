@@ -39,6 +39,7 @@ install P10K - romkatv/powerlevel10k in antidote
 
 ### Update:
 
+2026/05/26 - Simplified neovim to minimal setup (treesitter + onedark). Previous NvChad v2.5 setup available at tag `nvchad-v2.5-setup`.
 2024/10/01 - Add more automation
 2024/09/24 - Using Lazy Plugin for neovim - `:Lazy` - adding tmux plugin tpm
 2023/09/17 - Remove Starship replaced with P10K

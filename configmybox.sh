@@ -1,73 +1,65 @@
 #!/bin/bash
 
 set -ex
-# install zsh 
-# check if zsh is installed if not install
-if ! command -v zsh &> /dev/null 
-then  
-  sudo apt-get update && sudo apt-get install -y zsh
-  chsh -s /bin/zsh
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# install zsh
+if ! command -v zsh &> /dev/null; then
+  if [[ "$(uname)" == "Darwin" ]]; then
+    echo "zsh should be pre-installed on macOS"
+  else
+    sudo apt-get update && sudo apt-get install -y zsh
+    chsh -s /bin/zsh
+  fi
 fi
 
 # install antidote (zsh plugin manager)
-if [[ -e ~/.antidote ]]; then
-  echo "antidote already installed"
-else 
+if [[ ! -e ~/.antidote ]]; then
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
-CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf" ".wezterm.lua") 
+CONFIGS=(".zshrc" ".vimrc" ".zsh_plugins.txt" ".dircolors" ".p10k.zsh" ".tmux.conf")
+CONFIGDIRS=(".config/nvim" ".config/ghostty" ".git-template")
 
-CONFIGDIR=(".config/nvim" ".git-template")
+mkdir -p ~/.config
 
-echo "check for existing configs"
-
-if [[ ! -e ~/.config ]]; then
-  mkdir ~/.config
-fi
-
-for config in ${CONFIGS[@]}; do
-  echo "checking for $config"
-  if [[ -e $HOME/${config} ]]; then
-    echo "backing up & removing $config"
-    cp $HOME/$config $HOME/$config.$(date +%Y%m%d%H%M)
-    rm $HOME/$config
-  fi 
-  # create symlinks
-  ln -s $(pwd)/$config $HOME/$config
+for config in "${CONFIGS[@]}"; do
+  target="$HOME/$config"
+  source="$SCRIPT_DIR/$config"
+  # skip if already symlinked correctly
+  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+    echo "$config already linked"
+    continue
+  fi
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo "backing up $config"
+    mv "$target" "$target.$(date +%Y%m%d%H%M)"
+  fi
+  ln -s "$source" "$target"
 done
 
-for configdir in ${CONFIGDIR[@]}; do
-  echo "checking $configdir"
-  if [[ -e $HOME/${configdir} ]]; then
-    echo "backing up $configdir"
-    mv $HOME/$configdir $HOME/$configdir.$(date +%Y%m%d%H%M)
+for configdir in "${CONFIGDIRS[@]}"; do
+  target="$HOME/$configdir"
+  source="$SCRIPT_DIR/$configdir"
+  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+    echo "$configdir already linked"
+    continue
   fi
-  ln -s $(pwd)/$configdir $HOME/$configdir
+  if [[ -e "$target" || -L "$target" ]]; then
+    echo "backing up $configdir"
+    mv "$target" "$target.$(date +%Y%m%d%H%M)"
+  fi
+  ln -s "$source" "$target"
 done
 
 # tpm setup
 if [[ ! -e ~/.tmux/plugins/tpm ]]; then
   mkdir -p ~/.tmux/plugins
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # powerlevel10k setup
 if [[ ! -e ~/code/powerlevel10k ]]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/code/powerlevel10k
 fi
-#if [[ -e s.zshrc ]]; then
-#  echo "found .zshrc"
-#  cp s.zshrc $HOME/.zshrc.$(date +%Y%m%d)
-#  # rm $config
-#fi
-
-# create symlinks
-#ln -s $(pwd)/.zshrc ~/.zshrc
-#mkdir -p ~/.config
-#ln -s $(pwd)/.config/starship.toml ~/.config/starship.toml
-#ln -s $(pwd)/.vimrc ~/.vimrc
-#ln -s $(pwd)/.zsh_plugins.txt ~/.zsh_plugins.txt
-
-
-#source ~/.zshrc
