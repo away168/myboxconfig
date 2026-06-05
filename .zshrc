@@ -107,7 +107,7 @@ eval "$(zoxide init zsh)"
 
 # alias
 alias ascii="echo -e \$(pbpaste)"
-alias tf="tofu"
+# alias tf="tofu"
 alias ls="eza --color=always --git --icons=always"
 alias ll="ls --long"
 # alias cd="z"
@@ -120,18 +120,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-alias tmdb='tcloudadmin tmdb --api https://tmdb.internal.together.ai/api/v1'
-
-# TINMAN
-export PATH="$PATH:/Users/andrewway/together/tools/model_install/"
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andrewway/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-eval "$(mamba shell hook --shell zsh)"
+#eval "$(mamba shell hook --shell zsh)"
 
 # # >>> mamba initialize >>>
 # # !! Contents within this block are managed by 'mamba shell init' !!
@@ -148,12 +143,6 @@ eval "$(mamba shell hook --shell zsh)"
 
 # Created by `pipx` on 2025-03-02 20:14:01
 PYTHON_REQUIRE_VIRTUALENV=true
-export PATH="$PATH:/Users/andrewway/.local/bin"
-
-export TCM_BASE_URL="https://manager.cloud.together.ai/tcm/v1/"
-export TMDB_BASE_URL="https://tmdb.internal.together.ai/api/v1/"
-# tmdb 
-alias tmdb="tcloudadmin tmdb --api $TMDB_BASE_URL"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -171,5 +160,4 @@ ssh_retry() {
 
 export EDITOR=nvim
 export TMPDIR=/tmp
-source ~/.zsh_tenantctl
-export PATH="$HOME/.tcloud/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
