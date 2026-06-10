@@ -143,7 +143,6 @@ eval "$(pyenv init -)"
 
 # Created by `pipx` on 2025-03-02 20:14:01
 PYTHON_REQUIRE_VIRTUALENV=true
-
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 ssh_retry() {
